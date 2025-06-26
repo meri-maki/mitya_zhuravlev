@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./index.css"
-
-import Lm from "~/shared/assets/LM/LM.png"
+import LMain from "~/shared/assets/LM/LM.png"
+import Av from "~/shared/assets/av.png"
+import A from "~/shared/assets/Aviakassa.png"
+import D from "~/shared/assets/Digitas.png"
+import L from "~/shared/assets/LDCA.png"
+import LM from "~/shared/assets/LM.png"
+import { Route, Routes, useLocation, useNavigate } from "react-router"
+import { Accordion, AccordionItem } from "@szhsin/react-accordion"
 const caseStudies = {
 	"lemana-pro": {
 		title: "Лемана ПРО",
@@ -473,11 +479,26 @@ const App2 = () => {
 }
 
 const App = () => {
+	const nav = useNavigate()
+	const handleLM = () => {
+		nav("/leroymerlin")
+	}
+
+	const handleLCDA = () => {
+		nav("/LCDA")
+	}
+
+	const handlePG = () => {
+		window.location.href = "https://www.publicisgroupe.com/en/the-groupe/about-publicis-groupe "
+	}
+
+	const handleAK = () => {
+		window.location.href = "https://www.aviakassa.com/ "
+	}
+
 	return (
 		<section>
-			<header>
-				<span>Дмитрий Журавлёв</span>
-			</header>
+			<img src={Av} width={80} height={80} className="avatar" alt="Avatar" />
 			<h1>Дмитрий Журавлёв</h1>
 			<div data-column>
 				<h2>Старший продуктовый дизайнер в Лемана ПРО</h2>
@@ -525,7 +546,7 @@ const App = () => {
 				</div>
 				<div className="project" data-column>
 					<h2>
-						<a target="_blank" href="">
+						<a target="_blank" href="https://lemanapro.ru/ " rel="noreferrer">
 							Лемана ПРО (Leroy Merlin)
 						</a>
 					</h2>
@@ -535,17 +556,16 @@ const App = () => {
 						команды
 					</h5>
 					<div className="project-link">
-						<img width={24} height={24} />{" "}
-						<a target="_blank" href="">
-							Кейсы из Лемана ПРО
-						</a>
+						<img width={24} height={24} src={LM} alt="Logo" />
+						<div className="pseudo-link">Кейсы из Лемана ПРО</div>
 					</div>
-					<img className="main_project_img" src={Lm} />
+					<img className="main_project_img" src={LMain} alt="Project" onClick={handleLM} />
 				</div>
+
 				<div className="project" data-column>
 					<h2>
-						<a target="_blank" href="">
-							ЛЦДА \ ПочваХаб{" "}
+						<a target="_blank" href="https://pochvahub.ru/ " rel="noreferrer">
+							ЛЦДА \ ПочваХаб
 						</a>
 					</h2>
 					<div className="time">(апрель 2019 — август 2021)</div>
@@ -554,16 +574,15 @@ const App = () => {
 						формировал Product Vision
 					</h5>
 					<div className="project-link lcda">
-						<img width={24} height={24} />{" "}
-						<a target="_blank" href="">
-							Кейсы из ЛЦДА
-						</a>
+						<img width={24} height={24} src={L} alt="Logo" />
+						<div className="pseudo-link">Кейсы из ЛЦДА</div>
 					</div>
-					<img className="main_project_img" src={Lm} />
+					<img className="main_project_img" src={L} alt="Project" onClick={handleLCDA} />
 				</div>
+
 				<div className="project" data-column>
 					<h2>
-						<a target="_blank" href="">
+						<a target="_blank" href="https://www.publicisgroupe.com/en/the-groupe/about-publicis-groupe " rel="noreferrer">
 							Publicis Groupe
 						</a>
 					</h2>
@@ -573,35 +592,138 @@ const App = () => {
 						командой дизайнеров, участвовал в построении процессов брендинга, digital-продуктов и cross-платформенных решений
 					</h5>
 					<div className="project-link">
-						<img width={24} height={24} />{" "}
-						<a target="_blank" href="">
+						<img width={24} height={24} src={D} alt="Logo" />
+						<a target="_blank" href="https://mityazhuravlev.com.tilda.ws/ingrad ">
 							Работы из Publicis Groupe
 						</a>
 					</div>
-					<img className="main_project_img" src={Lm} />
+					<img className="main_project_img" src={D} alt="Project" onClick={handlePG} />
 				</div>
+
 				<div className="project" data-column>
 					<h2>
-						<a target="_blank" href="">
+						<a
+							target="_blank"
+							href="https://www.aviakassa.com/?channel_token=d6dd3f923812e12b8d2235419ff91ac543536d2c&gad_source=1&gad_campaignid=22361061512&gbraid=0AAAAA_D6KsXTLfMOno1_gom1aXRe5XQ5-&gclid=CjwKCAjw3rnCBhBxEiwArN0QE8N2ZOz40IgcAMeh91aWPDpxjvAOMBkEIZyiaE07yAeF4qXZeYB2UxoCmkIQAvD_BwE"
+							rel="noreferrer"
+						>
 							Aviakassa
 						</a>
 					</h2>
 					<div className="time">(апрель 2014 — май 2017)</div>
 					<h5>
+						{" "}
 						Занимался проектированием цифровых продуктов в сфере онлайн-продаж авиабилетов. Создавал интерактивные механики и проектировал пользовательский опыт для цифровых продуктов в
 						тесном взаимодействии с отделом маркетинга. Фокусировался на разработке вовлекающих интерфейсов, направленных на повышение конверсии и удобства использования
 					</h5>
-					<div className="project-link">
-						<img width={24} height={24} />{" "}
-						<a target="_blank" href="">
+					<div className="project-link avia">
+						<img width={24} height={24} src={A} alt="Logo" />
+						<a target="_blank" href=" https://mityazhuravlev.com.tilda.ws/aviakassa ">
 							Работы из AK
 						</a>
 					</div>
-					<img className="main_project_img" src={Lm} />
+					<img className="main_project_img" src={A} alt="Project" onClick={handleAK} />
 				</div>
 			</div>
 		</section>
 	)
 }
 
-export default App
+const Leroy = () => {
+	return (
+		<section className="project-page">
+			<img src={LM} width={60} height={60} className="project-icon" alt="leroymerlin" />
+			<h1>Кейсы из Лемана ПРО</h1>
+			<div data-column>
+				<div>
+					Я занимался с нуля разработкой сложных B2B и B2C продуктов — TMS (Система управления транспортом), Carrier Portal (Портал Перевозчика) и GetSlot (Бронирование\запись на слот). Эти
+					инхаус-продукты заменили собой менее эффективное рыночное решение.
+				</div>
+				<div>
+					Помогал смежной команде DEX (Android-приложение для водителей) в роли лид-дизайнера и наставника. Перепроектировал визуальную архитектуру. Создал новый дизайн-концепт.
+					Структурировал годовой план развития для junior-дизайнеров, способствующий их профессиональному росту и переходу на более высокую позицию.
+				</div>
+			</div>
+			<div className="divider" />
+			<div data-column className="theme-block">
+				<h2>DEX — Android-приложение для водителей ЛП</h2>
+				<img className="main_project_img" src={A} alt="Project" />
+				<div className="image-caption">Больше экранов в «Что сделано»</div>
+				<div>
+					<b>Роль:</b> Лид-дизайнер, Наставник
+				</div>
+				<div className="achievements">
+					<div>📍</div>
+					<div>
+						<b>Цель:</b> Помочь смежной команде перейти на новую дизайн-систему Fronton и улучшить пользовательский опыт при работе с заявками, погрузкой и выездом с территории.
+					</div>
+				</div>
+				<Accordeon header={"🔍 Проблема"}>
+					<div>
+						DEX — это первое{" "}
+						<a href="https://play.google.com/store/apps/details?id=ru.leroymerlin.cdsng&hl=ru" target="_blank">
+							мобильное приложение
+						</a>
+						, которое я редизайнил в компании.
+						<br /> Оригинальная версия была создана до меня, и хотя оно выполняло базовые функции, интерфейс не соответствовал текущим стандартам:
+					</div>
+					<ul
+						style={{
+							listStyleType: "disc",
+						}}
+					>
+						<li>Дизайн был не согласован с остальной экосистемой продуктов, так как был собран из разных дизайн-систем.</li>
+						<li>Не хватало понятной навигации.</li>
+						<li>Формы были запутанными, а информация сливалась в однородную массу.</li>
+					</ul>
+					<div>Это приводило к тому, что:</div>
+					<ul
+						style={{
+							listStyleType: "disc",
+						}}
+					>
+						<li>Водители тратили больше времени на выполнение задач.</li>
+						<li>Возникали ошибки при вводе данных.</li>
+						<li>Администраторы логистики получали больше обращений от перевозчиков.</li>
+					</ul>
+				</Accordeon>
+			</div>
+		</section>
+	)
+}
+
+const Accordeon = ({ children, header }) => {
+	const [open, setOpen] = useState(false)
+	const handleToggle = () => setOpen((prev) => !prev)
+	return (
+		<div className={`accordeon ${open ? "opened" : ""}`} onClick={handleToggle}>
+			<div className="accordeon-top">
+				<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.5 0L16.7272 14.25H0.272758L8.5 0Z" fill="var(--color-text)" />
+				</svg>
+				<h2>{header}</h2>
+			</div>
+			<div className="accordeon-content">{children}</div>
+		</div>
+	)
+}
+
+const Wrapper = () => {
+	const loc = useLocation()
+	return (
+		<>
+			<header>
+				<div className="header-wrapper">
+					<span>Дмитрий Журавлёв</span>
+				</div>
+			</header>
+			<Routes>
+				<Route path={"/"} element={<App />} />
+				<Route path={"/leroymerlin"} element={<Leroy />} />
+				<Route path={"/ldca"} element={<App />} />
+			</Routes>
+		</>
+	)
+}
+
+export default Wrapper
