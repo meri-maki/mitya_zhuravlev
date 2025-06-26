@@ -528,7 +528,7 @@ const App = () => {
 					<div>🌟</div>
 					<div data-column>
 						<div>
-							<b>Достижения</b>
+							<b>Достижение</b>
 						</div>
 						<ul
 							style={{
