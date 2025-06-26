@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./index.css"
 
-import Lm from "../assets/LM/Lm.png"
+import Lm from "~/assets/LM/Lm.png"
 const caseStudies = {
 	"lemana-pro": {
 		title: "Лемана ПРО",
